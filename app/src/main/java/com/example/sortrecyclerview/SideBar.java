@@ -157,6 +157,9 @@ public class SideBar extends View {
 	}
 
 
+	/**
+	 * 回调接口
+	 */
 	public interface OnTouchingLetterChangedListener {
 		void onTouchingLetterChanged(String s);
 	}

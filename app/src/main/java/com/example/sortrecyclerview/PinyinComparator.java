@@ -2,6 +2,9 @@ package com.example.sortrecyclerview;
 
 import java.util.Comparator;
 
+/**
+ * 比较器类，主要就是根据ASCII码来对数据进行比较排序
+ */
 public class PinyinComparator implements Comparator<SortModel> {
 
 	@Override

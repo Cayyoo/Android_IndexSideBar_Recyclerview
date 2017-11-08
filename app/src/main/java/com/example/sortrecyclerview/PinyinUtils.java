@@ -11,6 +11,8 @@ import net.sourceforge.pinyin4j.format.exception.BadHanyuPinyinOutputFormatCombi
 /**
  * 使用jar包解析汉字
  *
+ * 将中文转化为拼音的工具类，主要提供汉字转拼音的方法和获取首字母的方法
+ *
  * 中文转化为拼音的工具包：pinyin4j-2.5.0.jar
  * 官网地址：http://pinyin4j.sourceforge.net/
  */
