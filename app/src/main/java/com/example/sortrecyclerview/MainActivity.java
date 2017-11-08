@@ -22,7 +22,7 @@ import static com.example.sortrecyclerview.R.array.date;
  * 1、支持字母、汉字搜索
  * 2、全局使用一个RecyclerView，根据查询条件过滤数据源，然后更新列表并展示
  * 3、拼音解析使用了jar包，见libs目录
- * 4、本例可使用jar包、CharacterParser.java两种形式来解析汉字，详见说明
+ * 4、本例可使用jar包(PinyinUtils.java类)、CharacterParser.java两种形式来解析汉字，详见说明
  *
  * GitHub：https://github.com/xupeng92/SortRecyclerView
  *
