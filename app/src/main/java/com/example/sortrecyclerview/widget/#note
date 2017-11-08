@@ -1,0 +1,4 @@
+CharacterParser.java和MainActivityCharac.java暂未使用。
+
+1、如要使用jar包来解析汉字，则使用MainActivity.java
+2、若要使用CharacterParser.java来解析汉字，则使用MainActivityCharac.java，区别是new了一个CharacterParser对象，详见代码。
