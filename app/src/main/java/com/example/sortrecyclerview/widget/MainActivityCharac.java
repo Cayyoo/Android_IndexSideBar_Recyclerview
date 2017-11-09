@@ -22,8 +22,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import static com.example.sortrecyclerview.R.array.date;
-
 /**
  * Android使用RecyclerView实现（仿微信）的联系人A-Z字母排序和过滤搜索功能:
  * 1、支持字母、汉字搜索
@@ -46,7 +44,7 @@ public class MainActivityCharac extends AppCompatActivity {
     LinearLayoutManager manager;
 
     private SortAdapter adapter;
-    private List<SortModel> sourceDateList;
+    private List<SortModel> sourceDataList;
 
     /**
      * 根据拼音来排列RecyclerView里面的数据类
@@ -84,17 +82,17 @@ public class MainActivityCharac extends AppCompatActivity {
         });
 
         mRecyclerView = (RecyclerView) findViewById(R.id.recyclerView);
-        sourceDateList = filledData(getResources().getStringArray(date));
+        sourceDataList = filledData(getResources().getStringArray(R.array.dataArray));
 
         // 根据a-z进行排序源数据
-        Collections.sort(sourceDateList, pinyinComparator);
+        Collections.sort(sourceDataList, pinyinComparator);
 
         //RecyclerView配置manager
         manager = new LinearLayoutManager(this);
         manager.setOrientation(LinearLayoutManager.VERTICAL);
         mRecyclerView.setLayoutManager(manager);
 
-        adapter = new SortAdapter(this, sourceDateList);
+        adapter = new SortAdapter(this, sourceDataList);
         mRecyclerView.setAdapter(adapter);
 
         //item点击事件
@@ -133,14 +131,14 @@ public class MainActivityCharac extends AppCompatActivity {
     /**
      * 为ListView填充数据
      */
-    private List<SortModel> filledData(String[] date) {
+    private List<SortModel> filledData(String[] data) {
         List<SortModel> mSortList = new ArrayList<>();
 
-        for (int i = 0; i < date.length; i++) {
+        for (int i = 0; i < data.length; i++) {
             SortModel sortModel = new SortModel();
-            sortModel.setName(date[i]);
+            sortModel.setName(data[i]);
 
-            String pinyin = characterParser.getSelling(date[i]);
+            String pinyin = characterParser.getSelling(data[i]);
             String sortString = pinyin.substring(0, 1).toUpperCase();
 
             if (sortString.matches("[A-Z]")) {
@@ -158,25 +156,25 @@ public class MainActivityCharac extends AppCompatActivity {
      * 根据输入框中的值来过滤数据并更新ListView
      */
     private void filterData(String filterStr) {
-        List<SortModel> filterDateList = new ArrayList<>();
+        List<SortModel> filterDataList = new ArrayList<>();
 
         if (TextUtils.isEmpty(filterStr)) {
-            filterDateList = sourceDateList;
+            filterDataList = sourceDataList;
         } else {
-            filterDateList.clear();
+            filterDataList.clear();
 
-            for (SortModel sortModel : sourceDateList) {
+            for (SortModel sortModel : sourceDataList) {
                 String name = sortModel.getName();
 
                 if (name.indexOf(filterStr.toString()) != -1 || characterParser.getSelling(name).startsWith(filterStr.toString())) {
-                    filterDateList.add(sortModel);
+                    filterDataList.add(sortModel);
                 }
             }
 
         }
         // 根据a-z进行排序
-        Collections.sort(filterDateList, pinyinComparator);
-        adapter.updateList(filterDateList);
+        Collections.sort(filterDataList, pinyinComparator);
+        adapter.updateList(filterDataList);
     }
 
 }

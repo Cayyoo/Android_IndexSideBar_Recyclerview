@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
 
-    <string-array name="date">
+    <string-array name="dataArray">
         <item>裘豆豆</item>
         <item>B李莎</item>
         <item>jb</item>

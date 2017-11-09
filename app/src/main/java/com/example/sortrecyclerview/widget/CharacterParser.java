@@ -4,7 +4,7 @@ package com.example.sortrecyclerview.widget;
  * Java汉字转换为拼音
  */
 public class CharacterParser {
-    private static int[] pyvalue = new int[]{-20319, -20317, -20304, -20295,
+    private static int[] pyValue = new int[]{-20319, -20317, -20304, -20295,
             -20292, -20283, -20265, -20257, -20242, -20230, -20051, -20036,
             -20032, -20026, -20002, -19990, -19986, -19982, -19976, -19805,
             -19784, -19775, -19774, -19763, -19756, -19751, -19746, -19741,
@@ -55,7 +55,7 @@ public class CharacterParser {
             -10519, -10331, -10329, -10328, -10322, -10315, -10309, -10307,
             -10296, -10281, -10274, -10270, -10262, -10260, -10256, -10254};
 
-    public static String[] pystr = new String[]{"a", "ai", "an", "ang", "ao",
+    public static String[] pyStr = new String[]{"a", "ai", "an", "ang", "ao",
             "ba", "bai", "ban", "bang", "bao", "bei", "ben", "beng", "bi",
             "bian", "biao", "bie", "bin", "bing", "bo", "bu", "ca", "cai",
             "can", "cang", "cao", "ce", "ceng", "cha", "chai", "chan", "chang",
@@ -155,9 +155,9 @@ public class CharacterParser {
         if (ascii > 0 && ascii < 160) {
             result = String.valueOf((char) ascii);
         } else {
-            for (int i = (pyvalue.length - 1); i >= 0; i--) {
-                if (pyvalue[i] <= ascii) {
-                    result = pystr[i];
+            for (int i = (pyValue.length - 1); i >= 0; i--) {
+                if (pyValue[i] <= ascii) {
+                    result = pyStr[i];
                     break;
                 }
             }

@@ -1,4 +1,4 @@
-package com.example.sortrecyclerview;
+package com.example.sortrecyclerview.utils;
 
 
 import net.sourceforge.pinyin4j.PinyinHelper;

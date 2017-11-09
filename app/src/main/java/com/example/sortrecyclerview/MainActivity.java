@@ -11,11 +11,11 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.sortrecyclerview.utils.PinyinUtils;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-
-import static com.example.sortrecyclerview.R.array.date;
 
 /**
  * Android使用RecyclerView实现（仿微信）的联系人A-Z字母排序和过滤搜索功能:
@@ -27,6 +27,11 @@ import static com.example.sortrecyclerview.R.array.date;
  * GitHub：https://github.com/xupeng92/SortRecyclerView
  *
  * CSDN：http://blog.csdn.net/SilenceOO/article/details/75661590?locationNum=5&fps=1
+ *
+ *
+ * 其他参考项目：
+ * 浅谈android中手机联系人字母索引表的实现:
+ * http://blog.csdn.net/u013064109/article/details/52013744
  */
 public class MainActivity extends AppCompatActivity {
 
@@ -39,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
     LinearLayoutManager manager;
 
     private SortAdapter adapter;
-    private List<SortModel> sourceDateList;
+    private List<SortModel> sourceDataList;
 
     /**
      * 根据拼音来排列RecyclerView里面的数据类
@@ -74,17 +79,17 @@ public class MainActivity extends AppCompatActivity {
         });
 
         mRecyclerView = (RecyclerView) findViewById(R.id.recyclerView);
-        sourceDateList = filledData(getResources().getStringArray(date));
+        sourceDataList = filledData(getResources().getStringArray(R.array.dataArray));
 
         // 根据a-z进行排序源数据
-        Collections.sort(sourceDateList, pinyinComparator);
+        Collections.sort(sourceDataList, pinyinComparator);
 
         //RecyclerView配置manager
         manager = new LinearLayoutManager(this);
         manager.setOrientation(LinearLayoutManager.VERTICAL);
         mRecyclerView.setLayoutManager(manager);
 
-        adapter = new SortAdapter(this, sourceDateList);
+        adapter = new SortAdapter(this, sourceDataList);
         mRecyclerView.setAdapter(adapter);
 
         //item点击事件
@@ -152,14 +157,14 @@ public class MainActivity extends AppCompatActivity {
      * @param filterStr
      */
     private void filterData(String filterStr) {
-        List<SortModel> filterDateList = new ArrayList<>();
+        List<SortModel> filterDataList = new ArrayList<>();
 
         if (TextUtils.isEmpty(filterStr)) {
-            filterDateList = sourceDateList;
+            filterDataList = sourceDataList;
         } else {
-            filterDateList.clear();
+            filterDataList.clear();
 
-            for (SortModel sortModel : sourceDateList) {
+            for (SortModel sortModel : sourceDataList) {
                 String name = sortModel.getName();
 
                 if (name.indexOf(filterStr.toString()) != -1
@@ -168,14 +173,14 @@ public class MainActivity extends AppCompatActivity {
                         || PinyinUtils.getFirstSpell(name).toLowerCase().startsWith(filterStr.toString())
                         || PinyinUtils.getFirstSpell(name).toUpperCase().startsWith(filterStr.toString())
                         ) {
-                    filterDateList.add(sortModel);
+                    filterDataList.add(sortModel);
                 }
 
             }
         }
         // 根据a-z进行排序
-        Collections.sort(filterDateList, pinyinComparator);
-        adapter.updateList(filterDateList);
+        Collections.sort(filterDataList, pinyinComparator);
+        adapter.updateList(filterDataList);
     }
 
 }
