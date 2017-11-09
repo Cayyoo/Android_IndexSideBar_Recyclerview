@@ -23,8 +23,7 @@ The list data is processed and a new list of alphabetically sorted letters is di
  */
 ```
 
-![](https://github.com/ykmeory/Android_SideBar_Recyclerview/blob/master/img/img1.png "启动界面")
-![](https://github.com/ykmeory/Android_SideBar_Recyclerview/blob/master/img/img2.png "摁下侧边栏")
-![](https://github.com/ykmeory/Android_SideBar_Recyclerview/blob/master/img/img3.png "点击侧边栏，抬起，更改背景色")
-![](https://github.com/ykmeory/Android_SideBar_Recyclerview/blob/master/img/img4.png "字母搜索")
-![](https://github.com/ykmeory/Android_SideBar_Recyclerview/blob/master/img/img5.png "汉字搜索")
+![](https://github.com/ykmeory/Android_IndexSideBar_Recyclerview/blob/master/img/img1.png "启动界面")
+![](https://github.com/ykmeory/Android_IndexSideBar_Recyclerview/blob/master/img/img2.png "摁下侧边栏")
+![](https://github.com/ykmeory/Android_IndexSideBar_Recyclerview/blob/master/img/img3.png "点击侧边栏，抬起，更改背景色。字母搜索")
+![](https://github.com/ykmeory/Android_IndexSideBar_Recyclerview/blob/master/img/img4.png "点击侧边栏，抬起，更改背景色。汉字搜索")
